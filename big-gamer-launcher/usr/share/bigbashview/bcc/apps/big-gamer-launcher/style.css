@@ -1,3 +1,150 @@
+* {
+    box-sizing: border-box;
+  --text-size-tiny: 12px;
+  --text-size-small: 14px;
+  --text-size-medium: 15px;
+  --text-size-big: 16px;
+  --text-size-large: 17px;
+  --text-size-huge: 18px;
+}
+
+:root {
+    --body-bg-color: #3d4550;
+    --theme-bg-color: rgba(16 18 27 / 40%);
+    --border-color: rgba(113 119 144 / 25%);
+    --theme-color: #f9fafb;
+    --inactive-color: rgb(113 119 144 / 78%);
+    --hover-menu-bg: rgba(12 15 25 / 30%);
+    --content-title-color: #797e84;
+    --content-bg: rgb(146 151 179 / 13%);
+    --button-inactive: rgb(249 250 251 / 55%);
+    --border-card-color: rgb(70 70 70);
+    --dropdown-bg: #21242d;
+    --dropdown-hover: rgb(42 46 60);
+    --popup-bg: rgb(22 25 37);
+    --subtitle-bg: rgb(0 102 153);
+    --search-bg: rgb(255 255 255 / 8%);
+    --overlay-bg: rgba(36, 39, 59, 0.3);
+    --scrollbar-bg: #428bff;
+    --border-box: #777;
+    --shador-color-icons: rgb(79 79 79 / 100%);
+    --subtitle: rgb(255 255 255 / 100%);
+    --search-color: rgb(155 155 155 / 100%);
+    --search-color-over: #fff;
+    --footer-bg-color: #2a303a;
+    --box-color-shadow-01: rgba(0, 0, 0, 0.2);
+    --text-a-color: #ccc;
+}
+
+.light-mode {
+    --body-bg-color: #252d37;
+    --theme-bg-color: rgb(255 255 255 / 31%);
+    --theme-color: #3c3a3a;
+    --inactive-color: #333333;
+    --button-inactive: #3c3a3a;
+    --border-card-color: rgb(188 191 193);
+    --search-bg: rgb(255 255 255 / 31%);
+    --dropdown-bg: #f7f7f7;
+    --overlay-bg: rgb(255 255 255 / 30%);
+    --dropdown-hover: rgb(236 236 236);
+    --border-color: rgb(255 255 255 / 35%);
+    --popup-bg: rgb(255 255 255);
+    --subtitle-bg: rgb(255 255 255);
+    --hover-menu-bg: rgba(255 255 255 / 35%);
+    --scrollbar-bg: #428bff;
+    --content-title-color: --theme-color;
+    --content-bg: rgb(255 255 255 / 19%);
+    --border-box: #aaa;
+    --logo-big: invert(100%);
+    --shador-color-icons: rgb(0 0 0 / 28%);
+    --subtitle: rgb(0 0 0 / 100%);
+    --search-color: rgb(100 100 100 / 100%);
+    --search-color-over: #000;
+    --footer-bg-color: #6c6d6d;
+    --box-color-shadow-01: rgba(0, 0, 0, 0.2);
+    --text-a-color: #444;
+}
+
+body {
+    /*background-image: url(https://forum.biglinux.com.br/uploads/default/original/2X/f/f5679ca17fad618b3dc755347e2cb2677dd5ecfb.jpeg);*/
+    background-color: var(--body-bg-color);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    /*width: 100%;*/
+    /*height: 100vh;*/
+    margin: 0;
+    /*font-family: Lato, sans-serif;*/
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    /*flex-direction: column;*/
+    justify-content: center;
+    font-family: "Lato", sans-serif;
+    
+}
+
+
+  /* --------------------------- */
+ /*  OPEN CHANGE COLOR BUTTON   */
+/* --------------------------- */
+.dark-light {
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+    background-color: var(--dropdown-bg);
+    box-shadow: -1px 3px 8px -1px var(--box-color-shadow-01);
+    padding: 8px;
+    border-radius: 50%;
+    z-index: 3;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.dark-light svg {
+    width: 24px;
+    flex-shrink: 0;
+    fill: #ffce45;
+    stroke: #ffce45;
+    transition: 0.5s;
+}
+
+.light-mode .dark-light svg {
+    fill: transparent;
+    stroke: var(--theme-color);
+}
+
+.light-mode .profile-img {
+    border: 2px solid var(--theme-bg-color);
+}
+  /* ---------------------------- */
+ /*  CLOSE CHANGE COLOR BUTTON   */
+/* ---------------------------- */
+
+.light-mode .content-section ul {
+    background-color: var(--theme-bg-color);
+}
+
+.light-mode .pop-up__title {
+    border-color: var(--theme-color);
+}
+
+.light-mode .dropdown.is-active ul {
+    background-color: rgba(255, 255, 255, 0.94);
+}
+
+body.light-mode:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.45) 100%);
+}
+
+
 @import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@100;400;600&display=swap");
 *,
 *::after,
@@ -10,47 +157,33 @@
 p {
   font-weight: 400;
   font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--theme-color);
 }
 
 h4 {
   font-size: 0.9rem;
   margin-bottom: 5px;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-body {
-  background-color: #8287a0;
-  padding: 30px 0;
-  min-height: 100vh;
-  overflow-x: hidden;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: "Lato", sans-serif;
-  letter-spacing: 0.07em;
+  color: var(--theme-color);
 }
 
 .container {
-  background-color: #1a1b1f;
-  height: 90%;
-  min-height: 700px;
-  max-height: 750px;
-  overflow: hidden;
-  width: 90%;
-  max-width: 1400px;
-  border-radius: 20px;
-  display: flex;
-  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.5);
-  position: relative;
+    background-color: var(--theme-bg-color);
+    height: 100vh;
+    /* min-height: 700px; */
+    /* max-height: 750px; */
+    overflow: hidden;
+    width: 100%;
+    /* max-width: 1400px; */
+    border-radius: 15px;
+    display: flex;
+    /* box-shadow: 0 50px 100px rgb(0 0 0 / 50%); */
+    position: relative;
 }
 
 /* -------------------------navbar-------------------------- */
 nav {
   width: 80px;
-  border-right: 2px solid #3a3c47;
+  border-right: 2px solid var(--border-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,26 +193,62 @@ nav {
   position: relative;
 }
 
-.logo {
+/*.logo {
   position: absolute;
   top: 50px;
   left: 50%;
   transform: translate(-50%, -50%);
+}*/
+
+/* LOGO */
+.logo-biglinux {
+    filter: var(--logo-big);
 }
+
+.logo {
+    z-index: 2;
+    position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+}
+
+.logo img {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+}
+
+.logo a {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 
 nav ul {
   list-style: none;
 }
 
 nav ul li {
-  padding: 10px;
+  padding: 7px;
   margin: 30px;
   border-radius: 10px;
   cursor: pointer;
+  color: var(--theme-color);
+  width: 32px;
+  height: 32px;
 }
 
 nav ul i {
-  color: rgba(255, 255, 255, 0.5);
+  /*color: rgba(255, 255, 255, 0.5);*/
+  color: var(--theme-color);
 }
 
 nav ul li:hover,
@@ -98,8 +267,11 @@ nav li.active i {
 
 /* -------------------------navbar end-------------------------- */
 .right-main {
-  padding: 30px 50px;
-  position: relative;
+    padding: 30px 25px;
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* -------------------------main-------------------------- */
@@ -117,11 +289,13 @@ main {
   background-color: transparent;
   border: none;
   outline: none;
-  color: white;
+  color: var(--text-a-color);
   height: 100%;
-  width: 90%;
+  width: 100%;
+  margin-left: 10px;
   font-family: "Lato", sans-serif;
   font-weight: 400;
+  padding: 5px;
 }
 
 .search > input::placeholder {
@@ -131,30 +305,41 @@ main {
 .search {
   width: 30%;
   min-width: 300px;
-  padding: 1em 1.5em;
-  background-color: #313237;
+  padding: 6px 15px;
+  background-color: var(--search-bg);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: 50px;
-  color: rgba(255, 255, 255, 0.5);
+  border-radius: 30px;
+  color: var(--search-color-over);
 }
 
 .top {
-  width: 10%;
+  width: 8%;
   display: flex;
   justify-content: space-between;
-  color: white;
+  color: var(--theme-color);
+  max-width: 130px;
 }
 
 .top i {
-  width: 40px;
+/*  width: 40px;
   height: 40px;
   display: grid;
   place-items: center;
   border-radius: 50%;
   position: relative;
-  cursor: pointer;
+  cursor: pointer;*/
+
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    padding: 8px;
+    fill: var(--button-inactive);
 }
 
 .top .fa-bars {
@@ -167,12 +352,23 @@ main {
 
 header {
   padding: 70px 30px 30px 30px;
-  border-radius: 30px;
+/*  border-radius: 30px;
   border: 2px solid rgba(255, 255, 255, 0.1);
-  background-color: #313237;
-  background-image: radial-gradient(ellipse at top, #3a3c47, rgba(0, 0, 0, 0.6));
+  background-color: #313237;*/
+  /*background-image: linear-gradient(to top, var(--content-bg) 50%, var(--overlay-bg) 90%);*/
+  background-image: radial-gradient(ellipse at top, var(--content-bg), var(--overlay-bg));
   position: relative;
   margin-bottom: 30px;
+  
+  
+    font-size: var(--text-size-big);
+    background-color: var(--content-bg);
+    fill: var(--text-a-color);
+    border-radius: 15px;
+    border: 1px solid var(--border-card-color);
+    /* border: 2px solid rgb(255 255 255 / 0%);  */
+  
+  
 }
 
 .principal-img {
@@ -180,6 +376,9 @@ header {
   position: absolute;
   top: -40px;
   right: -20px;
+  
+  
+  
 }
 
 .principal-img img {
@@ -197,13 +396,13 @@ header {
 }
 
 header h1 {
-  color: white;
+  color: var(--theme-color);
   width: 50%;
   margin-bottom: 20px;
 }
 
 .purchase {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--theme-bg-color);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -214,7 +413,7 @@ header h1 {
 
 .purchase h2 {
   font-size: 0.8rem;
-  color: white;
+  color: var(--theme-color);
   padding: 0 10px;
 }
 
@@ -249,7 +448,7 @@ header h1 {
 
 .most-played {
   max-width: 100%;
-  color: white;
+  color: var(--theme-color);
 }
 
 .most-played h3 {
@@ -266,7 +465,7 @@ header h1 {
   height: 150px;
   width: 100%;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 15px;
   margin-bottom: 10px;
 }
 
@@ -319,19 +518,35 @@ header h1 {
   margin-top: 30px;
 }
 
+.main-header {
+    align-items: center;
+    height: 58px;
+    flex-shrink: 0;
+    display: none;
+}
+
 /* -----------------------------------------aside---------------------------------------------- */
 aside {
   flex: 0.5;
-  margin-left: 30px;
+  /*margin-left: 30px;*/
 }
 
 .library {
   clear: right;
-  color: white;
+  color: var(--theme-color);
   padding: 30px;
-  background-image: linear-gradient(to top, #1a1b1f 50%, #313237 90%);
-  border-radius: 30px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  background-image: linear-gradient(to top, var(--content-bg) 50%, var(--overlay-bg) 90%);
+  /*background-image: radial-gradient(ellipse at top, var(--content-bg), var(--inactive-color));*/
+  
+/*  border-radius: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.1);*/
+  
+    font-size: var(--text-size-big);
+    background-color: var(--hover-menu-bg);
+    fill: var(--text-a-color);
+    border-radius: 14px;
+    border: 1px solid var(--border-card-color);
+    margin-left: 30px;
 }
 
 .library-card {
@@ -364,6 +579,7 @@ aside {
   cursor: pointer;
   flex: 0.1;
   color: rgba(255, 255, 255, 0.5);
+  text-align: right;
 }
 
 .fa-check-circle {
@@ -374,8 +590,8 @@ aside {
 .library hr {
   border: none;
   height: 1px;
-  background-color: rgba(255, 255, 255, 0.3);
-  width: 70%;
+  background-color: var(--button-inactive);
+  width: 90%;
   margin: 20px auto;
 }
 
@@ -404,12 +620,26 @@ aside {
   color: inherit;
 }
 
+
+#hamburger {
+  display: none;
+}
+
 /* ------------------media query--------------------- */
 @media (max-width: 1200px) {
+  #hamburger {
+    display: flex;
+  }
+  #hamburger svg {
+    z-index: -1;
+  }
+
+
+  
   aside {
     position: absolute;
     inset: 0;
-    background-color: #1a1b1fbd;
+    background-color: rgb(22 25 37 / 90%);
     z-index: 1000;
     opacity: 0;
     transition: opacity 0.2s linear;
@@ -417,10 +647,11 @@ aside {
   }
 
   .library {
-    bottom: 20px;
+    /* bottom: 20px; */
     position: absolute;
     right: -50%;
     transition: right 0.2s linear;
+    top: 109px;
   }
 
   aside.active .library {
@@ -442,6 +673,13 @@ aside {
   }
 }
 @media (max-width: 1000px) {
+  .principal-img {
+    top: -9px;
+  }
+  .principal-img img {
+    max-width: 80%;
+  }  
+  
   header {
     padding: 30px 20px;
   }
@@ -472,7 +710,7 @@ aside {
   }
 
   .top {
-    width: 50%;
+    width: 30%;
   }
 
   .main-flex {
@@ -499,9 +737,9 @@ aside {
 }
 @media (max-width: 600px) {
   .main-flex {
-    height: 80%;
+/*    height: 80%;
     overflow-y: auto;
-    overflow-x: hidden;
+    overflow-x: hidden;*/
   }
 
   .spiderman-img {
@@ -509,8 +747,8 @@ aside {
     right: -50px;
   }
 
-  .container {
-    width: 90%;
+  .main-container {
+    width: 100%;
   }
 
   .right-main {
@@ -529,3 +767,19 @@ aside {
     height: max-content;
   }
 }
+
+  /* ------------------- */
+ /*   OPEN SCROLL BAR   */
+/* ------------------- */
+::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-bg);
+    border-radius: 10px;
+}
+  /* ------------------- */
+ /*   CLOSE SCROLL BAR   */
+/* ------------------- */
