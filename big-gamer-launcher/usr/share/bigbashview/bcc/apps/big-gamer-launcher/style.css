@@ -1,3 +1,8 @@
+.hide {
+  display: none;
+}
+
+
 * {
     box-sizing: border-box;
   --text-size-tiny: 12px;
@@ -75,7 +80,7 @@ body {
     /*height: 100vh;*/
     margin: 0;
     /*font-family: Lato, sans-serif;*/
-    min-height: 100vh;
+    /*min-height: 100vh;*/
     width: 100vw;
     display: flex;
     /*flex-direction: column;*/
@@ -522,9 +527,21 @@ header h1 {
     align-items: center;
     height: 58px;
     flex-shrink: 0;
-    display: none;
+    /*display: none;*/
 }
 
+.main-container {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.menu-link-main {
+    text-decoration: none;
+    color: var(--theme-color);
+    /*padding: 0 30px;*/
+    padding: 0 0px;
+}
 /* -----------------------------------------aside---------------------------------------------- */
 aside {
   flex: 0.5;
@@ -555,6 +572,11 @@ aside {
   align-items: center;
   justify-content: space-between;
 }
+
+aside svg {
+  width:  20px;
+  height: 20px;
+}  
 
 .game-logo {
   width: 50px;
@@ -633,11 +655,9 @@ aside {
   #hamburger svg {
     z-index: -1;
   }
-
-
-  
+ 
   aside {
-    position: absolute;
+    position: fixed;
     inset: 0;
     background-color: rgb(22 25 37 / 90%);
     z-index: 1000;
@@ -651,16 +671,17 @@ aside {
     position: absolute;
     right: -50%;
     transition: right 0.2s linear;
-    top: 109px;
+    top: 98px;
   }
 
   aside.active .library {
-    right: 20px;
+    right: 24px;
     pointer-events: all;
   }
 
   aside.active {
     opacity: 1;
+    height: calc(100vh - -35rem);
   }
 
   .top {
@@ -760,7 +781,7 @@ aside {
   }
 
   .main-flex::-webkit-scrollbar {
-    display: none;
+    /*display: none;*/
   }
 
   .most-played {
@@ -783,3 +804,92 @@ aside {
   /* ------------------- */
  /*   CLOSE SCROLL BAR   */
 /* ------------------- */
+
+
+  /* ------------- */
+ /*   OPEN DISC   */
+/* ------------- */
+.pie {
+  position: relative;
+  display: inline-block;
+  background-image: conic-gradient(
+    rgba(0,0,0,0) calc(3.6deg * var(--percent)),
+    rgba(0,0,0,1) calc(3.6deg * var(--percent))
+  );
+  background-blend-mode: overlay;
+  background-position: 50% 50%;
+  background-size: 150%; /* oversize bg image to prevent "underdraw" */
+  width: 3.75em;
+  height: 3.75em;
+  border-radius: 50%;
+}
+
+/* show the percentage (thanks to Ana Tudor for the counter() trick) */
+.pie--value::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  counter-reset: percent var(--percent);
+  content: counter(percent) "%";
+  color: #fff;
+  text-shadow: 0 0 1px #000;
+}
+
+.pie--disc::before {
+  content: '';
+  position: absolute;
+  top: .5em;
+  left: .5em;
+  right: .5em;
+  bottom: .5em;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.pie--disc::after {
+  color: #000;
+  text-shadow: none;
+}
+
+
+/* demo styles
+----------------------------------------------------- */
+
+.pie {
+  border: .15em solid #fff;
+  box-shadow: 0 .075em .2em .05em rgba(0,0,0,.25);
+  margin: .75rem;
+}
+.pie:nth-child(1) {
+  background-color: #d44;
+}
+.pie:nth-child(2) {
+  background-color: #fc3;
+}
+.pie:nth-child(3) {
+  background-color: #ac0;
+}
+.pie:nth-child(4) {
+  background-color: #0ac;
+}
+.pie:nth-child(5) {
+  background-color: #d6b;
+}
+
+.big {
+  font-size: 200%;
+}
+.med {
+  font-size: 150%;
+}
+.sml {
+  font-size: 100%;
+}
+
+  /* -------------- */
+ /*   CLOSE DISC   */
+/* -------------- */
+
+
+
